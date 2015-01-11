@@ -1,0 +1,96 @@
+﻿<Window x:Class="StaticSourceCodeSmellAnalysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pie="clr-namespace:PieControls;assembly=PieControls"
+        Title="Source Code Risk Analysis" Height="700" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <Label Margin="5" HorizontalAlignment="Center" FontSize="16">Code Smell Detector</Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="PathTextBox" Margin="5" HorizontalAlignment="Stretch" TextChanged="PathTextBox_TextChanged"></TextBox>
+                <Button Grid.Column="1" x:Name="AnalyzeButton" Margin="5" IsEnabled="False" Click="AnalyzeButton_Click">Analyze</Button>
+            </Grid>
+            <StackPanel Name="DetailPanel" Visibility="Collapsed"  Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label>Number of Files:</Label>
+                <Label Name="FilesLabel"></Label>
+                <Label>Number of Classes:</Label>
+                <Label Name="ClassesLabel"></Label>
+                <Label>Number of Methods:</Label>
+                <Label Name="MethodLabel"></Label>
+                <Label>Number of Lines:</Label>
+                <Label Name="LinesLabel"></Label>
+            </StackPanel>
+        </StackPanel>
+        
+        <ScrollViewer Name="ReportViewer" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <StackPanel>
+                <StackPanel  x:Name="ClassWiseReportPanel">
+                    <Border Margin="5"  Background="WhiteSmoke">
+                        <Label HorizontalAlignment="Center" FontSize="14">Class Wise Report</Label>
+                    </Border>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Top" Margin="5" Grid.Column="0" Background="WhiteSmoke">
+                            <pie:PieChart x:Name="GodClassChart" Width="250" Height="200" PieWidth="150" PieHeight="150"/>
+                            <Label HorizontalAlignment="Center" FontSize="14">God Class</Label>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Top" Margin="5" Grid.Column="1" Background="WhiteSmoke">
+                            <pie:PieChart x:Name="LazyClassChart" Width="250" Height="200" PieWidth="150" PieHeight="150"/>
+                            <Label HorizontalAlignment="Center" FontSize="14">Lazy Class</Label>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel  x:Name="MethodWiseReportPanel">
+                    <Border Margin="5"  Background="WhiteSmoke">
+                        <Label HorizontalAlignment="Center" FontSize="14">Method Wise Report</Label>
+                    </Border>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Background="WhiteSmoke" VerticalAlignment="Top" Grid.Column="0" Margin="5">
+                            <pie:PieChart x:Name="LongMethodChart" Width="200" Height="160" PieWidth="120" PieHeight="120"/>
+                            <Label HorizontalAlignment="Center" FontSize="14">Long Method</Label>
+                        </StackPanel>
+                        <StackPanel Background="WhiteSmoke" VerticalAlignment="Top" Grid.Column="1" Margin="5">
+                            <pie:PieChart x:Name="LongParameterListChart" Width="200" Height="160" PieWidth="120" PieHeight="120"/>
+                            <Label HorizontalAlignment="Center" FontSize="14">Long Parameter List</Label>
+                        </StackPanel>
+                        <StackPanel Background="WhiteSmoke" VerticalAlignment="Top" Grid.Column="2" Margin="5">
+                            <pie:PieChart x:Name="SwitchStatementChart" Width="200" Height="160" PieWidth="120" PieHeight="120"/>
+                            <Label HorizontalAlignment="Center" FontSize="14">Switch Statement</Label>
+                        </StackPanel>
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="FilterClassesButton" Margin="5" HorizontalAlignment="Left" Click="FilterClassesButton_Click">Class Level Smells</Button>
+                    <Button x:Name="FilterMethodsButton" Margin="5" HorizontalAlignment="Left" Click="FilterMethodsButton_Click">Methods Level Smells</Button>
+                    <Button x:Name="FilesButton" Margin="5" HorizontalAlignment="Left" Click="FilesButton_Click">Files Detail</Button>
+                    <Button x:Name="ClassesButton" Margin="5" HorizontalAlignment="Left" Click="ClassesButton_Click">Class Detail</Button>
+                    <Button x:Name="MethodsButton" Margin="5" HorizontalAlignment="Left" Click="MethodsButton_Click">Method Detail</Button>
+                  </StackPanel>
+
+                <DataGrid Height="500" x:Name="DataGrid" Margin="5" HorizontalAlignment="Stretch"></DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
