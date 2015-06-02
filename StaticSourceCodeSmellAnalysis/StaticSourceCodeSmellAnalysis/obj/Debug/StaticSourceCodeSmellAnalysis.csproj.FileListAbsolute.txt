@@ -26,3 +26,6 @@ c:\users\tahmiid\documents\visual studio 2012\Projects\StaticSourceCodeSmellAnal
 C:\Users\tahmiid\documents\visual studio 2012\Projects\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\bin\Debug\Microsoft.Expression.Drawing.dll
 C:\Users\tahmiid\documents\visual studio 2012\Projects\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\bin\Debug\PieControls.dll
 C:\Users\tahmiid\documents\visual studio 2012\Projects\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\bin\Debug\WPFToolkit.Extended.dll
+C:\Users\NahaR\Documents\GitHub\Code-Sniffer\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\bin\Debug\StaticSourceCodeSmellAnalysis.exe.config
+C:\Users\NahaR\Documents\GitHub\Code-Sniffer\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\obj\Debug\StaticSourceCodeSmellAnalysis.exe
+C:\Users\NahaR\Documents\GitHub\Code-Sniffer\StaticSourceCodeSmellAnalysis\StaticSourceCodeSmellAnalysis\obj\Debug\StaticSourceCodeSmellAnalysis.pdb
